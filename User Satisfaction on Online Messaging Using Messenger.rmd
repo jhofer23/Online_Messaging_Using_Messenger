@@ -1,0 +1,91 @@
+---
+title: "User Satisfaction on Online Messaging Using Messenger."
+author: "Ulgasan,Esmalla,Tamayor"
+date: "2024-04-18"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+install.packages("readxl")
+library("readxl")
+
+infos <- read_excel("Online Messaging Using Messenger.xlsx")
+View(infos)
+
+```
+
+Removing the decimals in Age
+
+```{r}
+# Load the necessary library
+library(readxl)
+
+# Read the Excel file
+infos <- read_excel("Online Messaging Using Messenger.xlsx")
+
+# Remove decimals from the "What is your age?" column
+infos$"What is your age?" <- as.integer(infos$"What is your age?")
+
+# Display the updated dataframe
+head(infos)
+
+View(infos)
+
+
+```
+
+
+```{r}
+
+# Load the necessary libraries
+library(readxl)
+library(ggplot2)
+
+# Read the Excel file
+infos <- read_excel("Online Messaging Using Messenger.xlsx")
+
+# Create a bar plot for gender distribution
+gender_plot <- ggplot(data = infos, aes(x = Gender)) +
+               geom_bar(fill = "red", color = "black") +
+               labs(title = "Gender Distribution",
+                    x = "Gender",
+                    y = "Count") +
+               theme_minimal()
+
+# Display the plot
+print(gender_plot)
+
+
+```
+
+
+
+```{r}
+# Load the necessary libraries
+library(readxl)
+library(ggplot2)
+
+# Read the Excel file
+infos <- read_excel("Online Messaging Using Messenger.xlsx")
+
+# Create a bar plot for education level distribution
+education_plot <- ggplot(data = infos, aes(x = `What is your education level?`, fill = `What is your education level?`)) +
+                  geom_bar() +
+                  labs(title = "Education Level Distribution",
+                       x = "Education Level",
+                       y = "Count") +
+                  theme_minimal() +
+                  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for better readability
+
+# Display the plot
+View(education_plot)
+
+
+```
+
