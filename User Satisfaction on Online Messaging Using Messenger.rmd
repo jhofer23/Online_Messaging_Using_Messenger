@@ -20,9 +20,11 @@ View(infos)
 
 ```
 
-Removing the decimals in Age
-
 ```{r}
+#install.packages("readr")
+#install.packages("dplyr")
+#install.packages("ggplot2")
+#install.packages("readxl")
 # Load the necessary library
 library(readxl)
 
@@ -37,55 +39,41 @@ head(infos)
 
 View(infos)
 
+```
 
+
+```{r}
+#Plotting of Age and Gender and
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+#Plotting of Age
+Age_Plot <- ggplot(Survey, aes(x = "Age")) +
+  geom_bar(fill = "red", color = "black") +
+  labs(title = "What is your age?", x = "what is your age", y = "Frequency") +
+  theme_minimal()
+
+#Plotting of Gender
+Gender_Plot <- ggplot(Survey, aes(x = Gender)) +
+  geom_bar(fill = "red", color = "black") +
+  labs(title = "Gender", x = "Gender", y = "Frequency") +
+  theme_minimal()
+
+Age_Plot
+Gender_Plot
 ```
 
 
 ```{r}
 
-# Load the necessary libraries
-library(readxl)
-library(ggplot2)
+#Plotting of Age
+Educational_Level_Plot <- ggplot(Survey, aes(x = "Educational Level")) +
+  geom_bar(fill = "red", color = "black") +
+  labs(title = "Educational Level", x = "Educational Level", y = "Frequency") +
+  theme_minimal()
 
-# Read the Excel file
-infos <- read_excel("Online Messaging Using Messenger.xlsx")
-
-# Create a bar plot for gender distribution
-gender_plot <- ggplot(data = infos, aes(x = Gender)) +
-               geom_bar(fill = "red", color = "black") +
-               labs(title = "Gender Distribution",
-                    x = "Gender",
-                    y = "Count") +
-               theme_minimal()
-
-# Display the plot
-print(gender_plot)
-
-
-```
-
-
-
-```{r}
-# Load the necessary libraries
-library(readxl)
-library(ggplot2)
-
-# Read the Excel file
-infos <- read_excel("Online Messaging Using Messenger.xlsx")
-
-# Create a bar plot for education level distribution
-education_plot <- ggplot(data = infos, aes(x = `What is your education level?`, fill = `What is your education level?`)) +
-                  geom_bar() +
-                  labs(title = "Education Level Distribution",
-                       x = "Education Level",
-                       y = "Count") +
-                  theme_minimal() +
-                  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for better readability
-
-# Display the plot
-View(education_plot)
-
+Educational_Level_Plot
 
 ```
 
