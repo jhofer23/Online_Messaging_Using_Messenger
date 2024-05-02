@@ -19,7 +19,7 @@ infos <- read_excel("Online Messaging Using Messenger.xlsx")
 View(infos)
 
 ```
-
+ Remove decimals from the "What is your age?" column
 ```{r}
 #install.packages("readr")
 #install.packages("dplyr")
@@ -40,34 +40,34 @@ head(infos)
 View(infos)
 
 ```
-
+Age and Gender Plot
 
 ```{r}
-#Plotting of Age and Gender and
+
 library(readr)
 library(dplyr)
 library(ggplot2)
 
 #Plotting of Age
-Age_Plot <- ggplot(Survey, aes(x = "Age")) +
+age_plot <- ggplot(Survey, aes(x = "Age")) +
   geom_bar(fill = "red", color = "black") +
   labs(title = "What is your age?", x = "what is your age", y = "Frequency") +
   theme_minimal()
 
 #Plotting of Gender
-Gender_Plot <- ggplot(Survey, aes(x = Gender)) +
+gender_plot <- ggplot(Survey, aes(x = Gender)) +
   geom_bar(fill = "red", color = "black") +
   labs(title = "Gender", x = "Gender", y = "Frequency") +
   theme_minimal()
 
-Age_Plot
-Gender_Plot
+age_plot
+gender_plot
 ```
-
+Plotting of Educational level
 
 ```{r}
 
-#Plotting of Age
+
 Educational_Level_Plot <- ggplot(Survey, aes(x = "Educational Level")) +
   geom_bar(fill = "red", color = "black") +
   labs(title = "Educational Level", x = "Educational Level", y = "Frequency") +
